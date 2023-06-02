@@ -46,12 +46,13 @@ Models were trained on RTX A5000 with 24GB memory for larger batch size(e.g. 64\
 
 Note that an different version of rdkit may result in different SMILES canonicalization results.
 
-Additionally, we apply a custom CUDA kernel for the operation `src1.index_select(0, idx1) ~ src2.index_select(0, idx2)`, which is one of the operation in our padding-free global attention for molecular graphs, it is faster than naive pytorch operation and also support AMP in pytorch. It should works well in most of the situation and will be further optimized later. You can install it by running :
+## 3. Custom indexing kernel
+The custom CUDA kernel for the operation `src1.index_select(0, idx1) ~ src2.index_select(0, idx2)` is now available, which is one of the operation in our padding-free global attention for molecular graphs, it is faster than naive pytorch operation and also support AMP in pytorch. It should works well in most of the situation and will be further optimized later. You can install it by running :
 ```
 python index_elemtwise_cuda/setup.py install
 ```
 
-## 3. Data preprocessing
+## 4. Data preprocessing
 We mainly use **USPTO-50k**, **USPTO-full** and **USPTO-MIT** datasets for training and evaluation, you can download them manually at the following address:
 ```
 uspto_50k  https://www.dropbox.com/scl/fo/4b4vlp3muns4hsp0sqp5q/h?dl=0&rlkey=272fqtrlk57jkmom6i5h0xomu
@@ -67,7 +68,7 @@ scripts/preprocess_MIT.sh -> uspto_MIT
 scripts/preprocess_full.sh -> uspto_full
 ```
 
-## 4. Training
+## 5. Training
 You can train the model by:
 ```
 scripts/train.sh -> uspto_50k
@@ -78,7 +79,7 @@ scripts/train_full.sh -> uspto_full
 
 The log file, checkpoint queue list, tensorboard file, and checkpoints are available at `model/ckpt/Model0/${training_start_time}`, notice that the model will eval automatically and generate average checkpoint according to the checkpoint queue, like `AVG_0.pt`, `AVG_1.pt` and so on, for the large dataset like uspto_full, it will use a random subset to run the evaluation during training.
 
-## 5. Evaling
+## 6. Evaling
 The checkpoints are available at the following address, which includes `.pt` file, log file, and evaluation results in the manuscript:
 ```
 uspto_50k       https://www.dropbox.com/scl/fo/erf9bkp8rz0ehq6ru43kz/h?dl=0&rlkey=2t6i17z55i7c4hpke05y8skpi
