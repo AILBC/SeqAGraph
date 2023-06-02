@@ -58,7 +58,7 @@ uspto_50k  https://www.dropbox.com/scl/fo/4b4vlp3muns4hsp0sqp5q/h?dl=0&rlkey=272
 uspto_MIT  https://www.dropbox.com/scl/fo/kkny008b93tgi7to2030s/h?dl=0&rlkey=fo5fykax0rc6d9oi9czg9bqe9
 uspto_full https://www.dropbox.com/scl/fo/tljb4n130cj2e3hq9wjqz/h?dl=0&rlkey=vwtmxeum4989017rn86eqiq07
 ```
-notice that **USPTO-50k** and **USPTO-full** are already available in the source file.
+notice that **USPTO-50k** are already available in the source file.
 
 After downloading them, please put the `data.zip` into `model/preprocess/data/${dataset_name}/raw`, and then run the following scripts for preprocessing:
 ```
