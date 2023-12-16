@@ -1,8 +1,8 @@
 # Enhanced Template-Free Reaction Prediction with Molecular Graphs and Sequence-based Data Augmentation
 
-Here is the code for *"Enhanced Template-Free Reaction Prediction with Molecular Graphs and Sequence-based Data Augmentation"*
+Here is the code for *"Enhanced Template-Free Reaction Prediction with Molecular Graphs and Sequence-based Data Augmentation"* in CIKM'23
 
-***The manuscript is under submission now, please cite this page if you find our work is helpful***
+We have now reuploaded the missing modules, and our presentation PowerPoint in CIKM'23, which has some additional figure descriptions of the algorithm.
 
 ## 1. Overview
 The overview of the directory is shown as:
